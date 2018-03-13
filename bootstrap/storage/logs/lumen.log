@@ -1,0 +1,10 @@
+[2018-03-13 11:01:31] production.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Class 'Tests\App\TestCases\TestCase' not found in /Users/nathan/Desktop/dev/test-task/tests/ExampleTest.php:8
+Stack trace:
+#0 /Users/nathan/Desktop/dev/test-task/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\Lumen\Application->handleShutdown()
+#1 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#2 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Class 'Tests\\App\\TestCases\\TestCase' not found at /Users/nathan/Desktop/dev/test-task/tests/ExampleTest.php:8)
+[stacktrace]
+#0 /Users/nathan/Desktop/dev/test-task/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\\Lumen\\Application->handleShutdown()
+#1 [internal function]: Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#2 {main}
+"} 

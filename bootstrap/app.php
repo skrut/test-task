@@ -66,9 +66,7 @@ $app->singleton(Illuminate\Contracts\Console\Kernel::class, App\Console\Kernel::
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
-// $app->register(App\Providers\EventServiceProvider::class);
+$app->register(LaravelDoctrine\ORM\DoctrineServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
 
-use Laravel\Lumen\Testing\DatabaseMigrations;
-use Laravel\Lumen\Testing\DatabaseTransactions;
+namespace Tests\App;
+
+use Tests\App\TestCases\TestCase;
 
 class ExampleTest extends TestCase
 {
