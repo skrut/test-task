@@ -20,7 +20,8 @@ try {
 |
 */
 
-$app = new Laravel\Lumen\Application(\dirname(__DIR__ . '/../'));
+$app = new Laravel\Lumen\Application(__DIR__ . '/../');
+$app->configure('mailchimp');
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,7 @@ $app->singleton(Illuminate\Contracts\Console\Kernel::class, App\Console\Kernel::
 */
 
 $app->register(LaravelDoctrine\ORM\DoctrineServiceProvider::class);
+$app->register(\Mailchimp\MailchimpServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
