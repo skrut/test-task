@@ -16,7 +16,7 @@ You are required to add a feature to this existing code to allow the creation, r
 deletion of members within a list.
 
 ## Scope
-The implementation for lists have been made already. The scope of this task is to update the current code base to
+The implementation for [LISTS][4] have been made already. The scope of this task is to update the current code base to
 implement CRUD operations for members:
 
 - Add members to a list
