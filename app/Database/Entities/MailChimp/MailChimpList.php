@@ -91,26 +91,6 @@ class MailChimpList extends MailChimpEntity
     private $visibility;
 
     /**
-     * Get campaign defaults.
-     *
-     * @return null|array
-     */
-    public function getCampaignDefaults(): ?array
-    {
-        return $this->campaignDefaults;
-    }
-
-    /**
-     * Get contact.
-     *
-     * @return null|array
-     */
-    public function getContact(): ?array
-    {
-        return $this->contact;
-    }
-
-    /**
      * Get id.
      *
      * @return null|string
@@ -128,46 +108,6 @@ class MailChimpList extends MailChimpEntity
     public function getMailChimpId(): ?string
     {
         return $this->mailChimpId;
-    }
-
-    /**
-     * Get name.
-     *
-     * @return null|string
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get notify on subscribe.
-     *
-     * @return null|string
-     */
-    public function getNotifyOnSubscribe(): ?string
-    {
-        return $this->notifyOnSubscribe;
-    }
-
-    /**
-     * Get notify on unsubscribe.
-     *
-     * @return null|string
-     */
-    public function getNotifyOnUnsubscribe(): ?string
-    {
-        return $this->notifyOnUnsubscribe;
-    }
-
-    /**
-     * Get permission reminder.
-     *
-     * @return null|string
-     */
-    public function getPermissionReminder(): ?string
-    {
-        return $this->permissionReminder;
     }
 
     /**
@@ -201,36 +141,6 @@ class MailChimpList extends MailChimpEntity
             'use_archive_bar' => 'nullable|boolean',
             'visibility' => 'nullable|string|in:pub,prv'
         ];
-    }
-
-    /**
-     * Get visibility.
-     *
-     * @return null|string
-     */
-    public function getVisibility(): ?string
-    {
-        return $this->visibility;
-    }
-
-    /**
-     * Is email type option.
-     *
-     * @return null|bool
-     */
-    public function isEmailTypeOption(): ?bool
-    {
-        return $this->emailTypeOption;
-    }
-
-    /**
-     * Is use archive bar.
-     *
-     * @return null|bool
-     */
-    public function isUseArchiveBar(): ?bool
-    {
-        return $this->useArchiveBar;
     }
 
     /**
@@ -276,6 +186,20 @@ class MailChimpList extends MailChimpEntity
     }
 
     /**
+     * Set mailchimp id of the list.
+     *
+     * @param string $mailChimpId
+     *
+     * @return \App\Database\Entities\MailChimp\MailChimpList
+     */
+    public function setMailChimpId(string $mailChimpId): MailChimpList
+    {
+        $this->mailChimpId = $mailChimpId;
+
+        return $this;
+    }
+
+    /**
      * Set name.
      *
      * @param string $name
@@ -313,20 +237,6 @@ class MailChimpList extends MailChimpEntity
     public function setNotifyOnUnsubscribe(string $notifyOnUnsubscribe): MailChimpList
     {
         $this->notifyOnUnsubscribe = $notifyOnUnsubscribe;
-
-        return $this;
-    }
-
-    /**
-     * Set mailchimp id of the list.
-     *
-     * @param string $mailChimpId
-     *
-     * @return \App\Database\Entities\MailChimp\MailChimpList
-     */
-    public function setMailChimpId(string $mailChimpId): MailChimpList
-    {
-        $this->mailChimpId = $mailChimpId;
 
         return $this;
     }

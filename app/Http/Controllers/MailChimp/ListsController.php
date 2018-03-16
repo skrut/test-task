@@ -47,7 +47,10 @@ class ListsController extends Controller
 
         if ($validator->fails()) {
             // Return error response if validation failed
-            return $this->errorResponse($validator->errors()->toArray());
+            return $this->errorResponse([
+                'message' => 'Invalid data given',
+                'errors' => $validator->errors()->toArray()
+            ]);
         }
 
         try {
@@ -142,7 +145,10 @@ class ListsController extends Controller
 
         if ($validator->fails()) {
             // Return error response if validation failed
-            return $this->errorResponse($validator->errors()->toArray());
+            return $this->errorResponse([
+                'message' => 'Invalid data given',
+                'errors' => $validator->errors()->toArray()
+            ]);
         }
 
         try {
