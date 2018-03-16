@@ -34,6 +34,7 @@ This task requirements are as follows:
 ## Get Started
 To complete this task you can either:
 
+- [Register on MailChimp][10], create your API key to use in your application
 - Fork this repository, update the code base and send the URL of your repository to the reviewer(s)
 - Clone this repository into your local environment, update the code base and send a zip of the repository to the reviewer(s)
 
@@ -46,3 +47,4 @@ To complete this task you can either:
 [7]: https://www.laraveldoctrine.org/docs/1.3/orm
 [8]: https://github.com/pacely/mailchimp-api-v3
 [9]: https://getcomposer.org/
+[10]: https://login.mailchimp.com/signup/
