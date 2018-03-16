@@ -1,4 +1,41 @@
 # LoyaltyCorp Test Task
 
-This project is the code base of the PHP Test Task for the company LoyaltyCorp. It is based on a really simple version
-of [Laravel Lumen](https://lumen.laravel.com).
+This project is the code base of the PHP Test Task for the company [Loyalty Corp][1]. 
+It is based on a really simple version of [Laravel Lumen][2].
+
+## Context
+Create a RESTful API to interact with [MailChimp API][3] to handle CRUD operations for [lists][4] and their [members][5].
+This task assumes that changes to MailChimp will only be made via the created API and therefore data does not need to be 
+retrieved from MailChimp with each API call and should be stored locally where practical.
+
+## Scope
+The implementation for lists have been made already. The scope of this task is to update the current code base to
+implement CRUD operations for members:
+
+- Add members to a list
+- Update members within a list
+- Remove members from a list
+- Retrieve members from a list
+
+## Requirements
+This task requirements are as follows:
+
+- Each external libraries are loaded via [composer][9]
+- The database layer used is [Doctrine][6] via the [laravel-doctrine/orm][7] package
+- The interaction with [MailChimp API][3] is made using [pacely/mailchimp-apiv3][8]
+
+## Get Started
+To complete this task you can either:
+
+- Fork this repository, update the code base and send the URL of your repository to the reviewer(s)
+- Clone this repository into your local environment, update the code base and send a zip of the repository to the reviewer(s)
+
+[1]: https://loyaltycorp.com.au
+[2]: https://lumen.laravel.com
+[3]: http://developer.mailchimp.com/documentation/mailchimp/reference/overview/
+[4]: http://developer.mailchimp.com/documentation/mailchimp/reference/overview/lists
+[5]: http://developer.mailchimp.com/documentation/mailchimp/reference/overview/lists/members
+[6]: http://www.doctrine-project.org/projects/orm.html
+[7]: https://www.laraveldoctrine.org/docs/1.3/orm
+[8]: https://github.com/pacely/mailchimp-api-v3
+[9]: https://getcomposer.org/
