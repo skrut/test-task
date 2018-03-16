@@ -4,16 +4,16 @@ This project is the code base of the PHP Test Task for the company [Loyalty Corp
 It is based on a really simple version of [Laravel Lumen][2].
 
 ## Context
-RESTful API to interact with [MailChimp API][3] to handle CRUD operations for [lists][4] and their [members][5].
+This test task requires you to implement a new feature into an existing RESTful API.
 
+The API is built to interact with [MailChimp via their API][3], handling CRUD operations for [LISTS][4] and [MEMBERS][5].
 
-This test task assumes that changes to MailChimp will only be made via the created API and therefore data does not need to be 
-retrieved from MailChimp with each API call and should be stored locally where practical.
+This task assumes all interaction will take place via this API, therefore data should be stored locally and 
+only retrieved from MailChimp when required. 
 
-
-This test task requires you to implement a new feature into an existing API. The current API contains code which allows 
-the creation, retrieval, update and deletion of lists. You are required to add a feature to this existing code to allow 
-the creation, retrieval update, and deletion of members within a list.
+The current API contains code which allows the creation, retrieval, update and deletion of lists. 
+You are required to add a feature to this existing code to allow the creation, retrieval update, and 
+deletion of members within a list.
 
 ## Scope
 The implementation for lists have been made already. The scope of this task is to update the current code base to
