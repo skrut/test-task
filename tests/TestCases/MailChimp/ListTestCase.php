@@ -17,6 +17,11 @@ abstract class ListTestCase extends WithDatabaseTestCase
     /**
      * @var array
      */
+    protected $createdListIds = [];
+
+    /**
+     * @var array
+     */
     protected static $listData = [
         'name' => 'New list',
         'permission_reminder' => 'You signed up for updates on Greeks economy.',
@@ -52,6 +57,24 @@ abstract class ListTestCase extends WithDatabaseTestCase
         'use_archive_bar',
         'visibility'
     ];
+
+    /**
+     * Call MailChimp to delete lists created during test.
+     *
+     * @return void
+     */
+    public function tearDown(): void
+    {
+        /** @var Mailchimp $mailChimp */
+        $mailChimp = $this->app->make(Mailchimp::class);
+
+        foreach ($this->createdListIds as $listId) {
+            // Delete list on MailChimp after test
+            $mailChimp->delete(\sprintf('lists/%s', $listId));
+        }
+
+        parent::tearDown();
+    }
 
     /**
      * Asserts error response when list not found.

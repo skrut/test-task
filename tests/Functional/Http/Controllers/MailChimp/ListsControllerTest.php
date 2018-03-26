@@ -22,6 +22,8 @@ class ListsControllerTest extends ListTestCase
         $this->seeJson(static::$listData);
         self::assertArrayHasKey('mail_chimp_id', $content);
         self::assertNotNull($content['mail_chimp_id']);
+
+        $this->createdListIds[] = $content['mail_chimp_id']; // Store MailChimp list id for cleaning purposes
     }
 
     /**
@@ -130,6 +132,10 @@ class ListsControllerTest extends ListTestCase
     {
         $this->post('/mailchimp/lists', static::$listData);
         $list = \json_decode($this->response->content(), true);
+
+        if (isset($list['mail_chimp_id'])) {
+            $this->createdListIds[] = $list['mail_chimp_id']; // Store MailChimp list id for cleaning purposes
+        }
 
         $this->put(\sprintf('/mailchimp/lists/%s', $list['list_id']), ['permission_reminder' => 'updated']);
         $content = \json_decode($this->response->content(), true);
