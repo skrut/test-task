@@ -40,9 +40,9 @@ To complete this task you can either:
 
 [1]: https://loyaltycorp.com.au
 [2]: https://lumen.laravel.com
-[3]: http://developer.mailchimp.com/documentation/mailchimp/reference/overview/
-[4]: http://developer.mailchimp.com/documentation/mailchimp/reference/overview/lists
-[5]: http://developer.mailchimp.com/documentation/mailchimp/reference/overview/lists/members
+[3]: http://developer.mailchimp.com/documentation/mailchimp/reference/overview
+[4]: http://developer.mailchimp.com/documentation/mailchimp/reference/lists
+[5]: http://developer.mailchimp.com/documentation/mailchimp/reference/lists/members
 [6]: http://www.doctrine-project.org/projects/orm.html
 [7]: https://www.laraveldoctrine.org/docs/1.3/orm
 [8]: https://github.com/pacely/mailchimp-api-v3
