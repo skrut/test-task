@@ -77,6 +77,7 @@ class ListsController extends Controller
      */
     public function remove(string $listId): JsonResponse
     {
+        /** @var \App\Database\Entities\MailChimp\MailChimpList|null $list */
         $list = $this->entityManager->getRepository(MailChimpList::class)->find($listId);
 
         if (null === $list) {
@@ -107,6 +108,7 @@ class ListsController extends Controller
      */
     public function show(string $listId): JsonResponse
     {
+        /** @var \App\Database\Entities\MailChimp\MailChimpList|null $list */
         $list = $this->entityManager->getRepository(MailChimpList::class)->find($listId);
 
         if (null === $list) {
@@ -129,6 +131,7 @@ class ListsController extends Controller
      */
     public function update(Request $request, string $listId): JsonResponse
     {
+        /** @var \App\Database\Entities\MailChimp\MailChimpList|null $list */
         $list = $this->entityManager->getRepository(MailChimpList::class)->find($listId);
 
         if (null === $list) {
@@ -140,6 +143,7 @@ class ListsController extends Controller
 
         // Update list properties
         $list->fill($request->all());
+
         // Validate entity
         $validator = $this->getValidationFactory()->make($list->toMailChimpArray(), $list->getValidationRules());
 

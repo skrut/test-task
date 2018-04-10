@@ -42,7 +42,7 @@ class ListsControllerTest extends ListTestCase
         self::assertArrayHasKey('errors', $content);
         self::assertEquals('Invalid data given', $content['message']);
 
-        foreach (static::$listData as $key => $value) {
+        foreach (\array_keys(static::$listData) as $key) {
             if (\in_array($key, static::$notRequired, true)) {
                 continue;
             }
@@ -142,7 +142,7 @@ class ListsControllerTest extends ListTestCase
 
         $this->assertResponseOk();
 
-        foreach (static::$listData as $key => $value) {
+        foreach (\array_keys(static::$listData) as $key) {
             self::assertArrayHasKey($key, $content);
             self::assertEquals('updated', $content['permission_reminder']);
         }

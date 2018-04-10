@@ -79,17 +79,17 @@ abstract class ListTestCase extends WithDatabaseTestCase
     /**
      * Asserts error response when list not found.
      *
-     * @param string $id
+     * @param string $listId
      *
      * @return void
      */
-    protected function assertListNotFoundResponse(string $id): void
+    protected function assertListNotFoundResponse(string $listId): void
     {
         $content = \json_decode($this->response->content(), true);
 
         $this->assertResponseStatus(404);
         self::assertArrayHasKey('message', $content);
-        self::assertEquals(\sprintf('MailChimpList[%s] not found', $id), $content['message']);
+        self::assertEquals(\sprintf('MailChimpList[%s] not found', $listId), $content['message']);
     }
 
     /**
@@ -131,6 +131,8 @@ abstract class ListTestCase extends WithDatabaseTestCase
      * @param string $method
      *
      * @return \Mockery\MockInterface
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess) Mockery requires static access to mock()
      */
     protected function mockMailChimpForException(string $method): MockInterface
     {

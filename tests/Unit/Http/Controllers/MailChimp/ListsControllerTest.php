@@ -32,6 +32,13 @@ class ListsControllerTest extends ListTestCase
         $controller = new ListsController($this->entityManager, $this->mockMailChimpForException('delete'));
         $list = $this->createList(static::$listData);
 
+        // If there is no list id, skip
+        if ($list->getId() === null) {
+            self::markTestSkipped('Unable to remove, no id provided for list');
+
+            return;
+        }
+
         $this->assertMailChimpExceptionResponse($controller->remove($list->getId()));
     }
 
@@ -45,6 +52,13 @@ class ListsControllerTest extends ListTestCase
         /** @noinspection PhpParamsInspection Mock given on purpose */
         $controller = new ListsController($this->entityManager, $this->mockMailChimpForException('patch'));
         $list = $this->createList(static::$listData);
+
+        // If there is no list id, skip
+        if ($list->getId() === null) {
+            self::markTestSkipped('Unable to update, no id provided for list');
+
+            return;
+        }
 
         $this->assertMailChimpExceptionResponse($controller->update($this->getRequest(), $list->getId()));
     }
