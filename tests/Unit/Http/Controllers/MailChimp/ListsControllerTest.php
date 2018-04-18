@@ -33,7 +33,7 @@ class ListsControllerTest extends ListTestCase
         $list = $this->createList(static::$listData);
 
         // If there is no list id, skip
-        if ($list->getId() === null) {
+        if (null === $list->getId()) {
             self::markTestSkipped('Unable to remove, no id provided for list');
 
             return;
@@ -54,7 +54,7 @@ class ListsControllerTest extends ListTestCase
         $list = $this->createList(static::$listData);
 
         // If there is no list id, skip
-        if ($list->getId() === null) {
+        if (null === $list->getId()) {
             self::markTestSkipped('Unable to update, no id provided for list');
 
             return;
