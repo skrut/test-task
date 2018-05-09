@@ -14,7 +14,7 @@ abstract class Entity
      */
     public function __construct(?array $data = null)
     {
-        if (null !== $data) {
+        if ($data !== null) {
             $this->fill($data);
         }
     }

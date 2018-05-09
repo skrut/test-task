@@ -31,7 +31,7 @@ abstract class MailChimpEntity extends Entity
         $array = [];
 
         foreach ($this->toArray() as $property => $value) {
-            if (null === $value) {
+            if ($value === null) {
                 continue;
             }
 

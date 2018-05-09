@@ -80,7 +80,7 @@ class ListsController extends Controller
         /** @var \App\Database\Entities\MailChimp\MailChimpList|null $list */
         $list = $this->entityManager->getRepository(MailChimpList::class)->find($listId);
 
-        if (null === $list) {
+        if ($list === null) {
             return $this->errorResponse(
                 ['message' => \sprintf('MailChimpList[%s] not found', $listId)],
                 404
@@ -111,7 +111,7 @@ class ListsController extends Controller
         /** @var \App\Database\Entities\MailChimp\MailChimpList|null $list */
         $list = $this->entityManager->getRepository(MailChimpList::class)->find($listId);
 
-        if (null === $list) {
+        if ($list === null) {
             return $this->errorResponse(
                 ['message' => \sprintf('MailChimpList[%s] not found', $listId)],
                 404
@@ -134,7 +134,7 @@ class ListsController extends Controller
         /** @var \App\Database\Entities\MailChimp\MailChimpList|null $list */
         $list = $this->entityManager->getRepository(MailChimpList::class)->find($listId);
 
-        if (null === $list) {
+        if ($list === null) {
             return $this->errorResponse(
                 ['message' => \sprintf('MailChimpList[%s] not found', $listId)],
                 404
