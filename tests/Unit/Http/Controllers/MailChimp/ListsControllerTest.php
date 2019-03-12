@@ -5,6 +5,7 @@ namespace Tests\App\Unit\Http\Controllers\MailChimp;
 
 use App\Http\Controllers\MailChimp\ListsController;
 use Tests\App\TestCases\MailChimp\ListTestCase;
+use Tests\App\TestCases\MailChimp\MailChimpData;
 
 class ListsControllerTest extends ListTestCase
 {
@@ -18,7 +19,7 @@ class ListsControllerTest extends ListTestCase
         /** @noinspection PhpParamsInspection Mock given on purpose */
         $controller = new ListsController($this->entityManager, $this->mockMailChimpForException('post'));
 
-        $this->assertMailChimpExceptionResponse($controller->create($this->getRequest(static::$listData)));
+        $this->assertMailChimpExceptionResponse($controller->create($this->getRequest(MailChimpData::$listData)));
     }
 
     /**
@@ -30,7 +31,7 @@ class ListsControllerTest extends ListTestCase
     {
         /** @noinspection PhpParamsInspection Mock given on purpose */
         $controller = new ListsController($this->entityManager, $this->mockMailChimpForException('delete'));
-        $list = $this->createList(static::$listData);
+        $list = $this->createList(MailChimpData::$listData);
 
         // If there is no list id, skip
         if (null === $list->getId()) {
@@ -51,7 +52,7 @@ class ListsControllerTest extends ListTestCase
     {
         /** @noinspection PhpParamsInspection Mock given on purpose */
         $controller = new ListsController($this->entityManager, $this->mockMailChimpForException('patch'));
-        $list = $this->createList(static::$listData);
+        $list = $this->createList(MailChimpData::$listData);
 
         // If there is no list id, skip
         if (null === $list->getId()) {

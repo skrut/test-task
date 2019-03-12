@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Tests\App\Functional\Http\Controllers\MailChimp;
 
 use Tests\App\TestCases\MailChimp\ListTestCase;
+use Tests\App\TestCases\MailChimp\MailChimpData;
 
 class ListsControllerTest extends ListTestCase
 {
@@ -14,12 +15,12 @@ class ListsControllerTest extends ListTestCase
      */
     public function testCreateListSuccessfully(): void
     {
-        $this->post('/mailchimp/lists', static::$listData);
+        $this->post('/mailchimp/lists', MailChimpData::$listData);
 
         $content = \json_decode($this->response->getContent(), true);
 
         $this->assertResponseOk();
-        $this->seeJson(static::$listData);
+        $this->seeJson(MailChimpData::$listData);
         self::assertArrayHasKey('mail_chimp_id', $content);
         self::assertNotNull($content['mail_chimp_id']);
 
@@ -42,7 +43,7 @@ class ListsControllerTest extends ListTestCase
         self::assertArrayHasKey('errors', $content);
         self::assertEquals('Invalid data given', $content['message']);
 
-        foreach (\array_keys(static::$listData) as $key) {
+        foreach (\array_keys(MailChimpData::$listData) as $key) {
             if (\in_array($key, static::$notRequired, true)) {
                 continue;
             }
@@ -70,7 +71,7 @@ class ListsControllerTest extends ListTestCase
      */
     public function testRemoveListSuccessfully(): void
     {
-        $this->post('/mailchimp/lists', static::$listData);
+        $this->post('/mailchimp/lists', MailChimpData::$listData);
         $list = \json_decode($this->response->content(), true);
 
         $this->delete(\sprintf('/mailchimp/lists/%s', $list['list_id']));
@@ -98,14 +99,14 @@ class ListsControllerTest extends ListTestCase
      */
     public function testShowListSuccessfully(): void
     {
-        $list = $this->createList(static::$listData);
+        $list = $this->createList(MailChimpData::$listData);
 
         $this->get(\sprintf('/mailchimp/lists/%s', $list->getId()));
         $content = \json_decode($this->response->content(), true);
 
         $this->assertResponseOk();
 
-        foreach (static::$listData as $key => $value) {
+        foreach (MailChimpData::$listData as $key => $value) {
             self::assertArrayHasKey($key, $content);
             self::assertEquals($value, $content[$key]);
         }
@@ -130,7 +131,7 @@ class ListsControllerTest extends ListTestCase
      */
     public function testUpdateListSuccessfully(): void
     {
-        $this->post('/mailchimp/lists', static::$listData);
+        $this->post('/mailchimp/lists', MailChimpData::$listData);
         $list = \json_decode($this->response->content(), true);
 
         if (isset($list['mail_chimp_id'])) {
@@ -142,7 +143,7 @@ class ListsControllerTest extends ListTestCase
 
         $this->assertResponseOk();
 
-        foreach (\array_keys(static::$listData) as $key) {
+        foreach (\array_keys(MailChimpData::$listData) as $key) {
             self::assertArrayHasKey($key, $content);
             self::assertEquals('updated', $content['permission_reminder']);
         }
@@ -155,7 +156,7 @@ class ListsControllerTest extends ListTestCase
      */
     public function testUpdateListValidationFailed(): void
     {
-        $list = $this->createList(static::$listData);
+        $list = $this->createList(MailChimpData::$listData);
 
         $this->put(\sprintf('/mailchimp/lists/%s', $list->getId()), ['visibility' => 'invalid']);
         $content = \json_decode($this->response->content(), true);
